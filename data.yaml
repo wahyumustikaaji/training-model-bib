@@ -1,0 +1,8 @@
+path: D:\IPB\SEMESTER 6\Viskom\bib detection project  # dataset root dir
+train: D:\IPB\SEMESTER 6\Viskom\bib detection project\train\images  # train images
+val: D:\IPB\SEMESTER 6\Viskom\bib detection project\test\images  # val images
+
+# Classes
+nc: 1                        
+names:
+  0: "number" 

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <h2>Welcome to Bib Number Detection System</h2>
+    <p>This system helps you detect and organize runner bib numbers from race photos.</p>
+    
+    <h3>Features:</h3>
+    <ul>
+        <li>For Admins: Upload and automatically process race photos</li>
+        <li>For Users: Find your race photos by entering your bib number</li>
+    </ul>
+    
+    {% if not session.get('user_id') %}
+        <p>Please <a href="{{ url_for('login') }}">login</a> or <a href="{{ url_for('register') }}">register</a> to continue.</p>
+    {% endif %}
+</div>
+{% endblock %}

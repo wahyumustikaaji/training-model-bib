@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <h2>Search Results</h2>
+    <p>Event: {{ event.name }} ({{ event.date.strftime('%Y-%m-%d') }})</p>
+    <p>Bib Number: {{ request.form['bib_number'] }}</p>
+    
+    {% if photos %}
+        <h3>Your Photos:</h3>
+        <div class="photo-grid">
+            {% for photo in photos %}
+                <div class="photo-item">
+                    <img src="{{ url_for('static', filename='uploads/' + photo.filename) }}" alt="Race Photo">
+                    <p>Bib: {{ photo.bib_number }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No photos found with this bib number for the selected event.</p>
+    {% endif %}
+    
+    <a href="{{ url_for('search_photos') }}" class="btn">Search Again</a>
+</div>
+{% endblock %}

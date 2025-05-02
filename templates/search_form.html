@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <h2>Search Your Race Photos</h2>
+    
+    <form method="post">
+        <div>
+            <label for="event_id">Select Event:</label>
+            <select id="event_id" name="event_id" required>
+                <option value="">-- Select Event --</option>
+                {% for event in events %}
+                    <option value="{{ event.id }}">{{ event.name }} ({{ event.date.strftime('%Y-%m-%d') }})</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="bib_number">Your Bib Number:</label>
+            <input type="text" id="bib_number" name="bib_number" required>
+        </div>
+        <button type="submit" class="btn">Search</button>
+    </form>
+</div>
+{% endblock %}

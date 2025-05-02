@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <h2>Upload Photos for {{ event.name }}</h2>
+    <p>Date: {{ event.date.strftime('%Y-%m-%d') }}</p>
+    
+    <form method="post" enctype="multipart/form-data">
+        <div>
+            <label for="photos">Select Photos:</label>
+            <input type="file" id="photos" name="photos" multiple accept=".jpg,.jpeg,.png" required>
+            <small>You can select multiple photos</small>
+        </div>
+        <button type="submit" class="btn">Upload and Process</button>
+    </form>
+</div>
+{% endblock %}
